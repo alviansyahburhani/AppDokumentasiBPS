@@ -13,6 +13,7 @@ import {
   TamuRekapSubmit,
   TamuDetail,
 } from '../screens/Tamu';
+import { PengelolaScreen } from '../screens/Pengelola';
 import { RootStackParamList } from '../types/navigation';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -59,6 +60,13 @@ export default function AppNavigator() {
       <Stack.Screen
         name="TamuDetail"
         component={TamuDetail}
+        options={{ animation: 'slide_from_right' }}
+      />
+
+      {/* Rute Pengelola (Akses dari Header Home) */}
+      <Stack.Screen
+        name="PengelolaScreen"
+        component={PengelolaScreen}
         options={{ animation: 'slide_from_right' }}
       />
     </Stack.Navigator>

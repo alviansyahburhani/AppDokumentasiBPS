@@ -167,12 +167,17 @@ export default function TamuRekapSubmit() {
             </View>
           </View>
 
-          <View style={styles.divider} />
-
           <View style={styles.infoRow}>
             <Text style={styles.infoLabel}>Asal Instansi:</Text>
             <Text style={styles.infoVal}>{formData.instansi}</Text>
           </View>
+
+          {formData.tanggal ? (
+            <View style={styles.infoRow}>
+              <Text style={styles.infoLabel}>Tanggal Kunjungan:</Text>
+              <Text style={styles.infoVal}>{formData.tanggal}</Text>
+            </View>
+          ) : null}
 
           <View style={styles.infoRow}>
             <Text style={styles.infoLabel}>Bertemu Siapa:</Text>

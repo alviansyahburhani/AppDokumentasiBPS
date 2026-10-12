@@ -3,6 +3,8 @@ import { View, Text, StyleSheet } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { SyncStatusType } from '../types/lapangan';
 
+import { colors } from '../theme/colors';
+
 interface StatusBadgeProps {
   status: SyncStatusType;
 }
@@ -13,30 +15,30 @@ export default function StatusBadge({ status }: StatusBadgeProps) {
       case 'SYNCED':
         return {
           label: 'TERKIRIM (CLOUD)',
-          bgColor: '#D4FF32', // Neon Green
-          textColor: '#111827',
+          bgColor: colors.primary, // Neon Green
+          textColor: colors.textDark,
           icon: 'cloud-done',
         };
       case 'PENDING_SYNC':
         return {
-          label: 'ANTEAN OFFLINE',
-          bgColor: '#FF7A00', // Vibrant Orange
-          textColor: '#FFFFFF',
+          label: 'ANTREAN OFFLINE',
+          bgColor: colors.accent, // Vibrant Orange
+          textColor: colors.white,
           icon: 'schedule',
         };
       case 'FAILED':
         return {
           label: 'GAGAL KIRIM',
-          bgColor: '#EF4444',
-          textColor: '#FFFFFF',
+          bgColor: colors.error,
+          textColor: colors.white,
           icon: 'error-outline',
         };
       case 'DRAFT':
       default:
         return {
           label: 'DRAFT LOKAL',
-          bgColor: '#E5E7EB',
-          textColor: '#111827',
+          bgColor: colors.border,
+          textColor: colors.textDark,
           icon: 'edit-note',
         };
     }

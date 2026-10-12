@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native';
 export const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
-    backgroundColor: '#F9FAFB',
+    backgroundColor: '#F3F4F6',
   },
   header: {
     flexDirection: 'row',
@@ -12,7 +12,7 @@ export const styles = StyleSheet.create({
     paddingHorizontal: 16,
     paddingVertical: 12,
     backgroundColor: 'rgba(255,255,255,0.95)',
-    borderBottomWidth: 2,
+    borderBottomWidth: 3,
     borderBottomColor: '#111827',
     zIndex: 10,
   },
@@ -84,6 +84,29 @@ export const styles = StyleSheet.create({
     color: '#FFF',
     fontSize: 9,
     fontWeight: '900',
+  },
+  adminHeaderBtn: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 5,
+    backgroundColor: '#D4FF32',
+    borderWidth: 2,
+    borderColor: '#111827',
+    paddingHorizontal: 10,
+    paddingVertical: 6,
+    borderRadius: 8,
+    // Solid shadow
+    shadowColor: '#111827',
+    shadowOffset: { width: 2, height: 2 },
+    shadowOpacity: 1,
+    shadowRadius: 0,
+    elevation: 2,
+  },
+  adminHeaderBtnText: {
+    fontSize: 11,
+    fontWeight: '900',
+    color: '#111827',
+    letterSpacing: 0.5,
   },
   profileAvatar: {
     width: 36,

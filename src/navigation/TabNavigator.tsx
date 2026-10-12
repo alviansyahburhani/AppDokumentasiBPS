@@ -6,10 +6,10 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import HomeScreen from '../screens/Home/HomeScreen';
 import { LapanganScreen } from '../screens/Lapangan';
 import { TamuScreen } from '../screens/Tamu';
-import { PengelolaScreen } from '../screens/Pengelola';
+import { RapatScreen } from '../screens/Rapat';
 
 // Layar kosong sementara untuk tab yang belum diimplementasikan
-const DummyScreen = () => <View style={{ flex: 1, backgroundColor: '#F9FAFB' }} />;
+const DummyScreen = () => <View style={{ flex: 1, backgroundColor: '#F3F4F6' }} />;
 
 // Komponen Ikon Dinamis (Animasi Skala)
 const AnimatedTabIcon = ({ name, focused, color }: any) => {
@@ -121,14 +121,14 @@ export default function TabNavigator() {
         }}
       />
 
-      {/* 5. Pengelola (Kelola Rapat, Template, Pilihan Cepat) */}
+      {/* 5. Rapat (Zona B: Sisi Pegawai & Resepsionis - Buat/Tutup Sesi Rapat) */}
       <Tab.Screen
-        name="PengelolaTab"
-        component={PengelolaScreen}
+        name="RapatTab"
+        component={RapatScreen}
         options={{
-          tabBarLabel: 'Pengelola',
+          tabBarLabel: 'Rapat',
           tabBarIcon: ({ color, focused }) => (
-            <AnimatedTabIcon name="tune" focused={focused} color={color} />
+            <AnimatedTabIcon name="groups" focused={focused} color={color} />
           ),
         }}
       />
@@ -158,7 +158,7 @@ const styles = StyleSheet.create({
     width: 76,
     height: 76,
     borderRadius: 38,
-    backgroundColor: '#F9FAFB',
+    backgroundColor: '#F3F4F6',
     justifyContent: 'center',
     alignItems: 'center',
   },

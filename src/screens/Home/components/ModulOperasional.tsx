@@ -64,26 +64,26 @@ export default function ModulOperasional() {
             </View>
           </TouchableOpacity>
 
-          {/* Card: Pengelola (Rapat & Template) */}
+          {/* Card: Rapat BPS (Sesi Rapat & Presensi) */}
           <TouchableOpacity
             style={[styles.card, styles.cardSplit, { backgroundColor: '#111827' }]}
             activeOpacity={0.9}
-            onPress={() => navigation.navigate('MainTabs', { screen: 'PengelolaTab' })}
+            onPress={() => navigation.navigate('MainTabs', { screen: 'RapatTab' })}
           >
             <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'flex-start' }}>
                <View style={[styles.iconBoxSplit, { backgroundColor: '#3B38F6', borderColor: '#FFF' }]}>
-                 <Icon name="tune" size={22} color="#FFF" />
+                 <Icon name="groups" size={22} color="#FFF" />
                </View>
                <View style={{ backgroundColor: '#D4FF32', paddingHorizontal: 6, paddingVertical: 2, borderRadius: 4 }}>
-                 <Text style={{ fontSize: 9, fontWeight: '900', color: '#111827' }}>ADMIN</Text>
+                 <Text style={{ fontSize: 9, fontWeight: '900', color: '#111827' }}>ZONA B</Text>
                </View>
             </View>
-            <Text style={[styles.titleSplit, { color: '#FFF' }]}>Pengelola</Text>
+            <Text style={[styles.titleSplit, { color: '#FFF' }]}>Sesi Rapat</Text>
             <Text style={[styles.descSplit, { color: '#9CA3AF' }]} numberOfLines={2}>
-              Sesi rapat, template & preset
+              Buat sesi & QR presensi rapat
             </Text>
             <View style={[styles.btnSplit, { backgroundColor: '#D4FF32', borderColor: '#D4FF32' }]}>
-              <Text style={[styles.btnSplitText, { color: '#111827' }]}>KELOLA</Text>
+              <Text style={[styles.btnSplitText, { color: '#111827' }]}>BUKA RAPAT</Text>
             </View>
           </TouchableOpacity>
         </View>

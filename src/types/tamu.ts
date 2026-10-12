@@ -9,6 +9,7 @@ export interface TamuFormData {
   bertemuSiapa: string;
   noWhatsapp: string;
   metode: MetodePendaftaranTamu;
+  tanggal?: string;
 }
 
 export interface AntreanTamu extends TamuFormData {

@@ -45,7 +45,7 @@ export default function GpsLocationCard({ watermarkEnabled, onWatermarkToggle }:
               <Icon name="branding-watermark" size={20} color="#3B38F6" />
             </View>
             <View>
-              <Text style={styles.watermarkTitle}>Tamplate Watermark</Text>
+              <Text style={styles.watermarkTitle}>Template Watermark</Text>
               <Text style={styles.watermarkDesc}>Edit watermark yang akan digunakan</Text>
             </View>
           </View>

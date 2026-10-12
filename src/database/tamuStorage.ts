@@ -41,6 +41,21 @@ class TamuStorageEngine {
     this.antreanList.set(antrean1.id, antrean1);
     this.antreanList.set(antrean2.id, antrean2);
 
+    // 1b. Antrean masuk dari Input Manual oleh Resepsionis (Jalur Manual)
+    const antreanManual1: AntreanTamu = {
+      id: 'antrean_manual_001',
+      metode: 'manual',
+      nama: 'Agus Salim, S.H.',
+      instansi: 'Kejaksaan Negeri Kota Malang',
+      keperluan: 'Permintaan Data Statistik Kriminal 2026',
+      bertemuSiapa: 'Kepala BPS Kota Malang',
+      noWhatsapp: '081345678901',
+      waktuAntre: new Date(Date.now() - 1000 * 60 * 10).toISOString(),
+      statusAntrean: 'MENUNGGU_VERIFIKASI',
+    };
+
+    this.antreanList.set(antreanManual1.id, antreanManual1);
+
     // 2. Tamu yang sudah selesai diproses (History)
     const history1: TamuRecord = {
       id: 'tamu_rec_001',
@@ -89,7 +104,17 @@ class TamuStorageEngine {
   // Antrean methods (Dari Jalur QRCode)
   public getAntreanList(): AntreanTamu[] {
     return Array.from(this.antreanList.values())
-      .filter((a) => a.statusAntrean === 'MENUNGGU_VERIFIKASI')
+      .filter((a) => a.statusAntrean === 'MENUNGGU_VERIFIKASI' && a.metode === 'qrcode')
+      .sort(
+        (a, b) =>
+          new Date(b.waktuAntre).getTime() - new Date(a.waktuAntre).getTime()
+      );
+  }
+
+  // Antrean methods (Dari Jalur Manual oleh Resepsionis)
+  public getAntreanManualList(): AntreanTamu[] {
+    return Array.from(this.antreanList.values())
+      .filter((a) => a.statusAntrean === 'MENUNGGU_VERIFIKASI' && a.metode === 'manual')
       .sort(
         (a, b) =>
           new Date(b.waktuAntre).getTime() - new Date(a.waktuAntre).getTime()
@@ -132,12 +157,14 @@ class TamuStorageEngine {
   }
 
   public getStats() {
-    const antrean = this.getAntreanList();
+    const antreanQr = this.getAntreanList();
+    const antreanManual = this.getAntreanManualList();
     const records = this.getAllRecords();
     const manualCount = records.filter((r) => r.metode === 'manual').length;
     const qrCount = records.filter((r) => r.metode === 'qrcode').length;
     return {
-      menungguQr: antrean.length,
+      menungguQr: antreanQr.length,
+      menungguManual: antreanManual.length,
       totalSelesai: records.length,
       manualCount,
       qrCount,

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, ScrollView, Text, Image, SafeAreaView } from 'react-native';
+import { View, ScrollView, Text, Image, SafeAreaView, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { styles } from './HomeScreen.styles';
 import GpsLocationCard from './components/GpsLocationCard';
@@ -8,7 +8,10 @@ import RekapCapaian from './components/RekapCapaian';
 import { OfflineStatusBanner, LocalSyncBanner } from '../../components/OfflineBanner';
 import { useNetworkSync } from '../../hooks/useNetworkSync';
 
+import { useNavigation } from '@react-navigation/native';
+
 export default function HomeScreen() {
+  const navigation = useNavigation<any>();
   const [watermarkEnabled, setWatermarkEnabled] = useState(true);
   const { isOnline, pendingCount, isSyncing, triggerSync } = useNetworkSync();
 
@@ -30,8 +33,18 @@ export default function HomeScreen() {
           </View>
         </View>
         <View style={styles.headerRight}>
+          {/* Tombol Kelola / Pengelola di Header */}
+          <TouchableOpacity
+            style={styles.adminHeaderBtn}
+            activeOpacity={0.8}
+            onPress={() => navigation.navigate('PengelolaScreen')}
+          >
+            <Icon name="tune" size={18} color="#111827" />
+            <Text style={styles.adminHeaderBtnText}>KELOLA</Text>
+          </TouchableOpacity>
+
           <View style={styles.profileAvatar}>
-            <Icon name="person" size={24} color="#FFF" />
+            <Icon name="person" size={22} color="#FFF" />
           </View>
         </View>
       </View>

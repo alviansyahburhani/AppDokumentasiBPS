@@ -25,6 +25,7 @@ export type RootStackParamList = {
   TamuDetail: {
     recordId: string;
   };
+  PengelolaScreen: undefined;
 };
 
 export type BottomTabParamList = {
@@ -32,5 +33,5 @@ export type BottomTabParamList = {
   LapanganTab: undefined;
   KameraTab: undefined;
   TamuTab: undefined;
-  PengelolaTab: undefined;
+  RapatTab: undefined;
 };
