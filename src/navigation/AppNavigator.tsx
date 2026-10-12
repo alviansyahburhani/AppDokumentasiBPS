@@ -6,6 +6,13 @@ import {
   LapanganForm,
   LapanganDetail,
 } from '../screens/Lapangan';
+import {
+  TamuScreen,
+  TamuFormManual,
+  TamuCam,
+  TamuRekapSubmit,
+  TamuDetail,
+} from '../screens/Tamu';
 import { RootStackParamList } from '../types/navigation';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -30,6 +37,28 @@ export default function AppNavigator() {
       <Stack.Screen
         name="LapanganDetail"
         component={LapanganDetail}
+        options={{ animation: 'slide_from_right' }}
+      />
+
+      {/* Rute Alur Buku Tamu (2 Cara: Manual & QRCode) */}
+      <Stack.Screen
+        name="TamuFormManual"
+        component={TamuFormManual}
+        options={{ animation: 'slide_from_right' }}
+      />
+      <Stack.Screen
+        name="TamuCam"
+        component={TamuCam}
+        options={{ animation: 'fade' }}
+      />
+      <Stack.Screen
+        name="TamuRekapSubmit"
+        component={TamuRekapSubmit}
+        options={{ animation: 'slide_from_right' }}
+      />
+      <Stack.Screen
+        name="TamuDetail"
+        component={TamuDetail}
         options={{ animation: 'slide_from_right' }}
       />
     </Stack.Navigator>

@@ -13,6 +13,18 @@ export type RootStackParamList = {
   LapanganDetail: {
     recordId: string;
   };
+  TamuFormManual: undefined;
+  TamuCam: {
+    formData: import('./tamu').TamuFormData;
+    existingPhotos?: import('./tamu').TamuPhotoItem[];
+  };
+  TamuRekapSubmit: {
+    formData: import('./tamu').TamuFormData;
+    photos: import('./tamu').TamuPhotoItem[];
+  };
+  TamuDetail: {
+    recordId: string;
+  };
 };
 
 export type BottomTabParamList = {
@@ -20,5 +32,5 @@ export type BottomTabParamList = {
   LapanganTab: undefined;
   KameraTab: undefined;
   TamuTab: undefined;
-  RapatTab: undefined;
+  PengelolaTab: undefined;
 };

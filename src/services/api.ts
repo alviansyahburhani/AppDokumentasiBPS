@@ -52,3 +52,36 @@ export const lapanganApi = {
     };
   },
 };
+
+export const tamuApi = {
+  /**
+   * Mengirim data Buku Tamu (Wajah + KTP) ke server GAS
+   * Sesuai arsitektur Zona D pada flow.md:
+   * - tamu_reguler: Folder 'Buku_Tamu', tab 'Data_Tamu_Lobby', trigger WA
+   * - peserta_rapat: Folder 'Rapat_X', tab 'Daftar_Hadir_Rapat'
+   */
+  async uploadTamuRecord(record: import('../types/tamu').TamuRecord): Promise<{
+    success: boolean;
+    folder: string;
+    sheetTab: string;
+    waStatus?: string;
+  }> {
+    // Simulasi respons latensi server
+    await new Promise<void>((resolve) => setTimeout(() => resolve(), 1200));
+
+    if (record) {
+      return {
+        success: true,
+        folder: 'Buku_Tamu',
+        sheetTab: 'Data_Tamu_Lobby',
+        waStatus: `WhatsApp terkirim otomatis ke ${record.bertemuSiapa} (Metode: ${record.metode === 'manual' ? 'Manual' : 'QRCode'})`,
+      };
+    }
+    return {
+      success: true,
+      folder: 'Buku_Tamu',
+      sheetTab: 'Data_Tamu_Lobby',
+      waStatus: 'Data berhasil dicatat',
+    };
+  },
+};

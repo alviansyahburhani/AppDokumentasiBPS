@@ -5,6 +5,8 @@ import { useNavigation } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import HomeScreen from '../screens/Home/HomeScreen';
 import { LapanganScreen } from '../screens/Lapangan';
+import { TamuScreen } from '../screens/Tamu';
+import { PengelolaScreen } from '../screens/Pengelola';
 
 // Layar kosong sementara untuk tab yang belum diimplementasikan
 const DummyScreen = () => <View style={{ flex: 1, backgroundColor: '#F9FAFB' }} />;
@@ -110,7 +112,7 @@ export default function TabNavigator() {
       {/* 4. Resepsionis (Buku Tamu) */}
       <Tab.Screen
         name="TamuTab"
-        component={DummyScreen}
+        component={TamuScreen}
         options={{
           tabBarLabel: 'Tamu',
           tabBarIcon: ({ color, focused }) => (
@@ -119,14 +121,14 @@ export default function TabNavigator() {
         }}
       />
 
-      {/* 5. Kelola Rapat */}
+      {/* 5. Pengelola (Kelola Rapat, Template, Pilihan Cepat) */}
       <Tab.Screen
-        name="RapatTab"
-        component={DummyScreen}
+        name="PengelolaTab"
+        component={PengelolaScreen}
         options={{
-          tabBarLabel: 'Rapat',
+          tabBarLabel: 'Pengelola',
           tabBarIcon: ({ color, focused }) => (
-            <AnimatedTabIcon name="groups" focused={focused} color={color} />
+            <AnimatedTabIcon name="tune" focused={focused} color={color} />
           ),
         }}
       />

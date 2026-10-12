@@ -5,12 +5,12 @@ import { styles } from './HomeScreen.styles';
 import GpsLocationCard from './components/GpsLocationCard';
 import ModulOperasional from './components/ModulOperasional';
 import RekapCapaian from './components/RekapCapaian';
-import OfflineBanner from '../../components/OfflineBanner';
+import { OfflineStatusBanner, LocalSyncBanner } from '../../components/OfflineBanner';
 import { useNetworkSync } from '../../hooks/useNetworkSync';
 
 export default function HomeScreen() {
   const [watermarkEnabled, setWatermarkEnabled] = useState(true);
-  const { isOnline } = useNetworkSync();
+  const { isOnline, pendingCount, isSyncing, triggerSync } = useNetworkSync();
 
   return (
     <SafeAreaView style={styles.safeArea}>
@@ -36,8 +36,15 @@ export default function HomeScreen() {
         </View>
       </View>
 
-      {/* Banner Status Koneksi */}
-      <OfflineBanner isOffline={!isOnline} />
+      {/* Banner 1: Status Koneksi Internet */}
+      <OfflineStatusBanner isOffline={!isOnline} />
+
+      {/* Banner 2: Data Lokal Tersimpan */}
+      <LocalSyncBanner
+        pendingCount={pendingCount}
+        isSyncing={isSyncing}
+        onSyncPress={triggerSync}
+      />
 
       <ScrollView contentContainerStyle={styles.scrollContent} showsVerticalScrollIndicator={false}>
         {/* GPS Location & Watermark Settings */}

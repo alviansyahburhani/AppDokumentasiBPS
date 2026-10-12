@@ -47,7 +47,11 @@ export default function ModulOperasional() {
         {/* SPLIT GRID: Buku Tamu & Kelola Rapat */}
         <View style={styles.splitRow}>
           {/* Card: Buku Tamu */}
-          <TouchableOpacity style={[styles.card, styles.cardSplit, { backgroundColor: '#FFF' }]} activeOpacity={0.9}>
+          <TouchableOpacity
+            style={[styles.card, styles.cardSplit, { backgroundColor: '#FFF' }]}
+            activeOpacity={0.9}
+            onPress={() => navigation.navigate('MainTabs', { screen: 'TamuTab' })}
+          >
             <View style={[styles.iconBoxSplit, { backgroundColor: '#FF7A00' }]}>
               <Icon name="qr-code-scanner" size={22} color="#FFF" />
             </View>
@@ -60,22 +64,26 @@ export default function ModulOperasional() {
             </View>
           </TouchableOpacity>
 
-          {/* Card: Kelola Rapat */}
-          <TouchableOpacity style={[styles.card, styles.cardSplit, { backgroundColor: '#111827' }]} activeOpacity={0.9}>
+          {/* Card: Pengelola (Rapat & Template) */}
+          <TouchableOpacity
+            style={[styles.card, styles.cardSplit, { backgroundColor: '#111827' }]}
+            activeOpacity={0.9}
+            onPress={() => navigation.navigate('MainTabs', { screen: 'PengelolaTab' })}
+          >
             <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'flex-start' }}>
                <View style={[styles.iconBoxSplit, { backgroundColor: '#3B38F6', borderColor: '#FFF' }]}>
-                 <Icon name="groups" size={22} color="#FFF" />
+                 <Icon name="tune" size={22} color="#FFF" />
                </View>
-               <View style={{ backgroundColor: '#FF7A00', paddingHorizontal: 6, paddingVertical: 2, borderRadius: 4 }}>
-                 <Text style={{ fontSize: 9, fontWeight: '900', color: '#FFF' }}>1 AKTIF</Text>
+               <View style={{ backgroundColor: '#D4FF32', paddingHorizontal: 6, paddingVertical: 2, borderRadius: 4 }}>
+                 <Text style={{ fontSize: 9, fontWeight: '900', color: '#111827' }}>ADMIN</Text>
                </View>
             </View>
-            <Text style={[styles.titleSplit, { color: '#FFF' }]}>Kelola Rapat</Text>
+            <Text style={[styles.titleSplit, { color: '#FFF' }]}>Pengelola</Text>
             <Text style={[styles.descSplit, { color: '#9CA3AF' }]} numberOfLines={2}>
-              Presensi & dokumentasi
+              Sesi rapat, template & preset
             </Text>
             <View style={[styles.btnSplit, { backgroundColor: '#D4FF32', borderColor: '#D4FF32' }]}>
-              <Text style={[styles.btnSplitText, { color: '#111827' }]}>BUKA SESI</Text>
+              <Text style={[styles.btnSplitText, { color: '#111827' }]}>KELOLA</Text>
             </View>
           </TouchableOpacity>
         </View>
