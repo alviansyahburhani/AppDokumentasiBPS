@@ -392,16 +392,7 @@ export default function TamuScreen() {
         {activeTab === 'ANTREAN_QR' && (
           <View style={styles.listArea}>
             <View style={styles.antreanActionHeader}>
-              <Text style={styles.antreanHeaderSubtitle}>
-                Tamu yang telah mengisi Web Form via Scan QR Meja
-              </Text>
-              <TouchableOpacity
-                style={styles.simulateBtn}
-                onPress={handleSimulasiTamuScanQr}
-              >
-                <Icon name="add" size={14} color="#111827" />
-                <Text style={styles.simulateBtnText}>Simulasi Tamu Scan</Text>
-              </TouchableOpacity>
+
             </View>
 
             {filteredAntreanQr.length === 0 ? (
